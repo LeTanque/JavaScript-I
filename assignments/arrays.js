@@ -75,64 +75,65 @@ function sortOn (arr, prop) {
 
 // ==== Challenge 1 ====
 // The dealer can't recall the information for a car with an id of 33 on his lot. Help the dealer find out which car has an id of 33 by logging the car's year, make, and model in the console log provided to you below:
-// for (let i=0; i<inventory.length; i++) {
-//     if (inventory[i].id === 33) {
-//         console.log(`Car 33 is a ${inventory[i].car_year} ${inventory[i].car_make} ${inventory[i].car_model} \n-------------------------------\n`);
-//     }
-// }
+for (let i=0; i<inventory.length; i++) {
+    if (inventory[i].id === 33) {
+        console.log(`Car 33 is a ${inventory[i].car_year} ${inventory[i].car_make} ${inventory[i].car_model} \n-------------------------------\n`);
+    }
+}
 
 
 // ==== Challenge 2 ====
 // The dealer needs the information on the last car in their inventory.  What is the make and model of the last car in the inventory?  Log the make and model into the console.
-// let lastCar = 0;
-// for (let i=inventory.length-1; i<inventory.length; i++) {
-//     console.log(`Last car in inventory is ID#${inventory[i].id} \n${inventory[i].car_make} ${inventory[i].car_model} \n-------------------------------\n`)
-// }
+let lastCar = 0;
+for (let i=inventory.length-1; i<inventory.length; i++) {
+    console.log(`Last car in inventory is ID#${inventory[i].id} \n${inventory[i].car_make} ${inventory[i].car_model} \n-------------------------------\n`)
+}
 
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
 
-// // Copy inventory array of objects into a new variable: carModels then sort in place by 'car_model' using the above sortOn function 
-// let carModels = inventory;
-// sortOn(carModels, 'car_model');
+// Copy inventory array of objects into a new variable: carModels then sort in place by 'car_model' using the above sortOn function 
+let carModels = [];
+carModels = inventory.slice();
+sortOn(carModels, 'car_model');
 
-// // Iterate over the array logging results in console
-// for (let i=0; i<carModels.length; i++) {
-//     console.log(carModels[i].car_model);
-// }
+// Iterate over the array logging results in console
+for (let i=0; i<carModels.length; i++) {
+    console.log(carModels[i].car_model);
+}
+console.log('--- Car models sorted alphabetically ---\n-------------------------------\n');
 
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
 
-// // Copy the inventory array of objects into carYears then sort using sortOn by 'car_year' (no need to sort, according to question, but looks better)
-// let carYears = inventory.slice();
-// sortOn(carYears, 'car_year');
+// Copy the inventory array of objects into carYears then sort using sortOn by 'car_year' (no need to sort, according to question, but looks better)
+let carYears = []; // First create empty array
+carYears = inventory.slice(); // this is how to make a copy of existing array into new empty array
+sortOn(carYears, 'car_year');
 
-// // Iterate over array and create a new array of just car_year
-// for (let i=0; i<carYears.length; i++) {
-//     carYearsArr = carYears[i].car_year;
-//     console.log(carYearsArr);
-// }
+// Iterate over array and create a new array of just car_year
+for (let i=0; i<carYears.length; i++) {
+    console.log(carYears[i].car_year);
+}
+console.log('--- Car years sorted numerically ---\n-------------------------------\n');
 
 
 // ==== Challenge 5 ====
 // The car lot manager needs to find out how many cars are older than the year 2000. Using the carYears array you just created, find out how many cars were made before the year 2000 by populating the array oldCars and logging it's length.
 
-// let carYears = inventory.slice();  // this is how to make a copy, according to MDN
-// sortOn(carYears, 'car_year');
+// Create a new, empty array called oldCars
+let oldCars = [];
+oldCars = inventory.slice();
 
-// // Create a new, empty array called oldCars
-// let oldCars = [];
-
-// // Loop over the carYears data and pick out all carYears before 2000. Push those values into the new array, oldCars
-// for (let i = 0; i < carYears.length; i++) {
-//     if (carYears[i].car_year < 2000) {
-//         oldCars.push(carYears[i].car_year);
-//     }
-// }
-// console.log(oldCars.length + ' total cars made before 2000\n-------------------------------\n');
+// Loop over the carYears data and pick out all carYears before 2000. Push those values into the new array, oldCars
+for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].car_year < 2000) {
+        oldCars.push(inventory[i].car_year);
+    }
+}
+console.log(oldCars.length + ' total cars made before 2000\n-------------------------------\n');
 
 
 // ==== Challenge 6 ====
@@ -146,7 +147,7 @@ for (let i = 0; i < inventory.length; i++) {
         BMWAndAudi.push(inventory[i]);
     }
 }
-console.log(JSON.stringify(BMWAndAudi));
+console.log(JSON.stringify(BMWAndAudi, null, 2));
 
 
 
