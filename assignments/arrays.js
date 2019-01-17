@@ -125,28 +125,28 @@ console.log('--- Car years sorted numerically ---\n-----------------------------
 
 // Create a new, empty array called oldCars
 let oldCars = [];
-oldCars = inventory.slice();
 
-// Loop over the carYears data and pick out all carYears before 2000. Push those values into the new array, oldCars
-for (let i = 0; i < inventory.length; i++) {
-    if (inventory[i].car_year < 2000) {
-        oldCars.push(inventory[i].car_year);
+// Loop over the carYears array and pick out all carYears before 2000. Push those values into the new array, oldCars
+for (let i = 0; i < carYears.length; i++) {
+    if (carYears[i].car_year < 2000) {
+        oldCars.push(carYears[i].car_year);
     }
 }
-console.log(oldCars.length + ' total cars made before 2000\n-------------------------------\n');
+console.log(`There are ${oldCars.length} total cars in inventory made before 2000\n-------------------------------\n`);
 
 
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
+
 let BMWAndAudi = [];
 for (let i = 0; i < inventory.length; i++) {
-    // console.log(inventory[i]);
     if ( inventory[i].car_make === 'BMW' ) {
         BMWAndAudi.push(inventory[i]);
     } else if ( inventory[i].car_make === 'Audi' ) {
         BMWAndAudi.push(inventory[i]);
     }
 }
+// JSON stringify to make the json object a string, then add spaces to make it more legible
 console.log(JSON.stringify(BMWAndAudi, null, 2));
 
 
