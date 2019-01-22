@@ -147,9 +147,5 @@ for (let i = 0; i < inventory.length; i++) {
     }
 }
 // JSON stringify to make the json object a string, then add spaces to make it more legible
-console.log(JSON.stringify(BMWAndAudi, null, 2));
-
-
-
-
+console.log(BMWAndAudi, null, 2);
 
